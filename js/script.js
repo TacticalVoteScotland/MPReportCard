@@ -46,7 +46,7 @@ function generateGraphic() {
 
   html2canvas(document.querySelector("#mpInfoBox"), {
     useCORS:true,
-    proxy: 'https://mpreportcard.github.io/',
+    proxy: 'https://mpreportcard.github.io/MPReportCard/',
     windowWidth: mpInfoBox.width,
     width: mpInfoBox.width,
     windowHeight: mpInfoBox.height,
@@ -105,7 +105,7 @@ form.addEventListener("submit", e => {
   let postcode = formData.get("postcode")
 
   function printMessageToScreen(constituencyString){
-  fetch(`https://mpreportcard.github.io/js/constituencies.json`)
+  fetch(`https://mpreportcard.github.io/MPReportCard/js/constituencies.json`)
       .then(res => res.json())
       .then(data => {
       if(constituencyString == undefined) {
