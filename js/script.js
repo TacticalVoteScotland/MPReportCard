@@ -166,17 +166,21 @@ function checkVote(code) {
           if (partyString == "Conservative") {
             document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralCon[code]}: `;
             document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/F.png" width = 48px title="Absent or Abstained"/>`;
+          } else if (partyString == "Conservative" && constituencyString == "Southend West") {
+            document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralCon[code]}: `;
+            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, only being elected after this vote, or acting as a teller.`;
+            document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/absent.png" width = 48px title="Absent or Abstained"/>`;
           } else if (partyString == "Labour") {
             document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralLab[code]}: `;
-            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, or acting as a teller.`;
+            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, only being elected after this vote, or acting as a teller.`;
             document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/absent.png" width = 48px title="Absent or Abstained"/>`;
           } else if (partyString == "Labour and Co-operative") {
             document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralLab[code]}: `;
-            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, or acting as a teller.`;
+            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, only being elected after this vote, or acting as a teller.`;
             document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/absent.png" width = 48px title="Absent or Abstained"/>`;
           } else {
             document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralLab[code]}: `;
-            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, or acting as a teller.`;
+            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, only being elected after this vote, or acting as a teller.`;
             document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/absent.png" width = 48px title="Absent or Abstained"/>`;
           }
 
