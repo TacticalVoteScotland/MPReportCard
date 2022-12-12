@@ -72,10 +72,10 @@ function download_image() {
   link.click();
 }
 
-let issuesFor = ['Voted to provide more capacity and staff for the NHS', 'Voted to cut VAT on energy bills', 'Voted to save jobs at P&O Ferries', 'Voted to ban fracking', 'Voted to cut business costs to protect jobs']
-let issuesAgainst = ['Voted against providing more capacity and staff for the NHS', 'Voted against cutting VAT on energy bills', 'Voted against saving jobs at P&O Ferries', 'Voted to allow fracking', 'Voted against cutting business costs to protect jobs']
-let issuesNeutralLab = ['Was absent for the vote on capacity and staff for the NHS', 'Was absent for the vote on VAT on energy bills', 'Was absent from the vote on P&O Ferries jobs', 'Was absent for the vote on fracking', 'Was absent for the vote on cutting business costs']
-let issuesNeutralCon = ['Did not vote to provide more capacity and staff for the NHS', 'Did not vote to cut VAT on energy bills', 'Did not vote to save jobs at P&O Ferries', 'Did not vote to ban fracking', 'Did not vote to cut business costs to protect jobs']
+let issuesFor = ['Voted to scrap non-dom tax status to train 10,000 more nurses', 'Voted to cut VAT on energy bills', 'Voted to save jobs at P&O Ferries', 'Voted to ban fracking', 'Voted to cut business costs to protect jobs']
+let issuesAgainst = ['Voted against scrapping non-dom tax status to train 10,000 more nurses', 'Voted against cutting VAT on energy bills', 'Voted against saving jobs at P&O Ferries', 'Voted to allow fracking', 'Voted against cutting business costs to protect jobs']
+let issuesNeutralLab = ['Was absent for the vote on non-dom status', 'Was absent for the vote on VAT on energy bills', 'Was absent from the vote on P&O Ferries jobs', 'Was absent for the vote on fracking', 'Was absent for the vote on cutting business costs']
+let issuesNeutralCon = ['Did not vote to scrap non-dom tax status to train 10,000 more nurses', 'Did not vote to cut VAT on energy bills', 'Did not vote to save jobs at P&O Ferries', 'Did not vote to ban fracking', 'Did not vote to cut business costs to protect jobs']
 let forImage = ['img/A.png', 'img/A.png', 'img/A.png', 'img/A.png', 'img/A.png'];
 let againstImage = ['img/F.png', 'img/F.png', 'img/F.png', 'img/F.png', 'img/F.png'];
 //Sewage, Energy VAT, P&O Ferries, Fracking,
