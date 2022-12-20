@@ -72,8 +72,8 @@ function download_image() {
   link.click();
 }
 
-let issuesFor = ['Voted for an emergency budget to tackle the cost of living crisis', 'Voted against Boris Johnson in a confidence vote', 'Voted to save jobs at P&O Ferries', 'Voted to ban fracking', 'Voted to remove VAT from energy bills']
-let issuesAgainst = ['Voted against an emergency budget to tackle the cost of living crisis', 'Voted to have confidence in Boris Johnson', 'Voted against saving jobs at P&O Ferries', 'Voted to allow fracking', 'Voted against removing VAT from energy bills']
+let issuesFor = ['Voted for an emergency budget to tackle the cost of living crisis', 'Voted to have confidence in Boris Johnson', 'Voted to save jobs at P&O Ferries', 'Voted to ban fracking', 'Voted to remove VAT from energy bills']
+let issuesAgainst = ['Voted against an emergency budget to tackle the cost of living crisis', 'Voted against Boris Johnson in a confidence vote', 'Voted against saving jobs at P&O Ferries', 'Voted to allow fracking', 'Voted against removing VAT from energy bills']
 let issuesNeutralLab = ['Was absent for the vote on an emergency budget', 'Was absent for the confidence vote on Boris Johnson', 'Was absent from the vote on P&O Ferries jobs', 'Was absent for the vote on fracking', 'Was absent for the vote on removing VAT from energy bills']
 let issuesNeutralCon = ['Did not vote for an emergency budget to tackle the cost of living crisis', 'Did not vote to remove Boris Johnson from office', 'Did not vote to save jobs at P&O Ferries', 'Did not vote to ban fracking', 'Did not vote remove VAT from energy bills']
 let forImage = ['img/A.png', 'img/A.png', 'img/A.png', 'img/A.png', 'img/A.png'];
