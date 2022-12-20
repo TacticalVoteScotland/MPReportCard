@@ -227,7 +227,7 @@ function checkVote(code, constituencyString) {
           }
         })
   }
-}
+})
 
 checkVote(0, constituencyString);
 checkVote(1, constituencyString);
