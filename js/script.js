@@ -170,35 +170,35 @@ function checkVote(code, constituencyString) {
           let noTellersArray = voteData.NoTellers;
 
           if (constituencyString == "Birmingham, Edgbaston") {
-            document.getElementById(`issue1Name`).innerHTML = `Voted for an emergency budget to tackle the cost of living crisis.`;
+            document.getElementById(`issue1Name`).innerHTML = `Voted for an emergency budget to tackle the cost of living crisis:`;
             document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
             document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
-            document.getElementById(`issue2Name`).innerHTML = `Voted against Boris Johnson in a confidence vote.`;
-            document.getElementById(`absenceDisclaimer2`).innerHTML = ``;
-            document.getElementById(`voteOutcome2`).innerHTML = `<img src="img/A.png" width = 48px title="Against"/>`;
-            document.getElementById(`issue3Name`).innerHTML = `Voted to end non-dom tax status.`;
+            document.getElementById(`issue2Name`).innerHTML = `Was absent for the confidence vote on Boris Johnson:`;
+            document.getElementById(`absenceDisclaimer2`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, not yet elected, or acting as a teller.`;
+            document.getElementById(`voteOutcome2`).innerHTML = `<img src="img/absent.png" width = 48px title="Against"/>`;
+            document.getElementById(`issue3Name`).innerHTML = `Voted to end non-dom tax status:`;
             document.getElementById(`absenceDisclaimer3`).innerHTML = ``;
             document.getElementById(`voteOutcome3`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
-            document.getElementById(`issue4Name`).innerHTML = `Voted to ban fracking.`;
+            document.getElementById(`issue4Name`).innerHTML = `Voted to ban fracking:`;
             document.getElementById(`absenceDisclaimer4`).innerHTML = ``;
             document.getElementById(`voteOutcome4`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
-            document.getElementById(`issue5Name`).innerHTML = `Voted to remove VAT from energy bills.`;
-            document.getElementById(`absenceDisclaimer5`).innerHTML = ``;
-            document.getElementById(`voteOutcome5`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            document.getElementById(`issue5Name`).innerHTML = `Was absent for the vote on removing VAT from energy bills:`;
+            document.getElementById(`absenceDisclaimer5`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, not yet elected, or acting as a teller.`;
+            document.getElementById(`voteOutcome5`).innerHTML = `<img src="img/absent.png" width = 48px title="For"/>`;
           } else if (constituencyString == "Mitcham and Morden") {
             document.getElementById(`issue1Name`).innerHTML = `Was absent for the vote on an emergency budget`;
             document.getElementById(`absenceDisclaimer1`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, not yet elected, or acting as a teller.`;
             document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/absent.png" width = 48px title="For"/>`;
-            document.getElementById(`issue2Name`).innerHTML = `Voted to stop Exempt Accommodation providers exploiting renters`;
+            document.getElementById(`issue2Name`).innerHTML = `Voted to stop Exempt Accommodation providers exploiting renters:`;
             document.getElementById(`absenceDisclaimer2`).innerHTML = ``;
             document.getElementById(`voteOutcome2`).innerHTML = `<img src="img/A.png" width = 48px title="Against"/>`;
-            document.getElementById(`issue3Name`).innerHTML = `Voted to end non-dom tax status`;
+            document.getElementById(`issue3Name`).innerHTML = `Voted to end non-dom tax status:`;
             document.getElementById(`absenceDisclaimer3`).innerHTML = ``;
             document.getElementById(`voteOutcome3`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
-            document.getElementById(`issue4Name`).innerHTML = `Voted to ban fracking.`;
+            document.getElementById(`issue4Name`).innerHTML = `Voted to ban fracking:`;
             document.getElementById(`absenceDisclaimer4`).innerHTML = ``;
             document.getElementById(`voteOutcome4`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
-            document.getElementById(`issue5Name`).innerHTML = `Was absent for the vote on removing VAT from energy bills`;
+            document.getElementById(`issue5Name`).innerHTML = `Was absent for the vote on removing VAT from energy bills:`;
             document.getElementById(`absenceDisclaimer5`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, not yet elected, or acting as a teller.`;
             document.getElementById(`voteOutcome5`).innerHTML = `<img src="img/absent.png" width = 48px title="For"/>`;
           } else if (constituencyString == "Wakefield") {
