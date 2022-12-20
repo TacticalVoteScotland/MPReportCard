@@ -46,7 +46,7 @@ function generateGraphic() {
 
   html2canvas(document.querySelector("#mpInfoBox"), {
     useCORS:true,
-    proxy: 'https://mpreportcard.github.io/MPReportCard/',
+    proxy: 'https://mpreportcard.github.io/',
     windowWidth: mpInfoBox.width,
     width: mpInfoBox.width,
     windowHeight: mpInfoBox.height,
@@ -72,14 +72,14 @@ function download_image() {
   link.click();
 }
 
-let issuesFor = ['Voted to scrap non-dom tax status to train 10,000 more nurses', 'Voted to cut VAT on energy bills', 'Voted to save jobs at P&O Ferries', 'Voted to ban fracking', 'Voted to cut business costs to protect jobs']
-let issuesAgainst = ['Voted against scrapping non-dom tax status to train 10,000 more nurses', 'Voted against cutting VAT on energy bills', 'Voted against saving jobs at P&O Ferries', 'Voted to allow fracking', 'Voted against cutting business costs to protect jobs']
-let issuesNeutralLab = ['Was absent for the vote on non-dom status', 'Was absent for the vote on VAT on energy bills', 'Was absent from the vote on P&O Ferries jobs', 'Was absent for the vote on fracking', 'Was absent for the vote on cutting business costs']
-let issuesNeutralCon = ['Did not vote to scrap non-dom tax status to train 10,000 more nurses', 'Did not vote to cut VAT on energy bills', 'Did not vote to save jobs at P&O Ferries', 'Did not vote to ban fracking', 'Did not vote to cut business costs to protect jobs']
+let issuesFor = ['Voted for an emergency budget to tackle the cost of living crisis.', 'Voted against Boris Johnson in a confidence vote.', 'Voted to save jobs at P&O Ferries.', 'Voted to ban fracking.', 'Voted to remove VAT from energy bills.']
+let issuesAgainst = ['Voted against an emergency budget to tackle the cost of living crisis.', 'Voted to have confidence in Boris Johnson.', 'Voted against saving jobs at P&O Ferries.', 'Voted to allow fracking.', 'Voted against removing VAT from energy bills.']
+let issuesNeutralLab = ['Was absent for the vote on an emergency budget.', 'Was absent for the confidence vote on Boris Johnson.', 'Was absent from the vote on P&O Ferries jobs.', 'Was absent for the vote on fracking.', 'Was absent for the vote on removing VAT from energy bills.']
+let issuesNeutralCon = ['Did not vote for an emergency budget to tackle the cost of living crisis.', 'Did not vote to remove Boris Johnson from office.', 'Did not vote to save jobs at P&O Ferries.', 'Did not vote to ban fracking.', 'Did not vote remove VAT from energy bills.']
 let forImage = ['img/A.png', 'img/A.png', 'img/A.png', 'img/A.png', 'img/A.png'];
 let againstImage = ['img/F.png', 'img/F.png', 'img/F.png', 'img/F.png', 'img/F.png'];
 //Sewage, Energy VAT, P&O Ferries, Fracking,
-let voteCodes = [1417, 1191, 1253, 1372, 1192]
+let voteCodes = [1308, 1351, 1253, 1372, 1191]
 
 let constituency
 let constituencyString
@@ -105,15 +105,21 @@ form.addEventListener("submit", e => {
   let postcode = formData.get("postcode")
 
   function printMessageToScreen(constituencyString){
-  fetch(`https://mpreportcard.github.io/MPReportCard/js/constituencies.json`)
+  fetch(`https://mpreportcard.github.io/js/constituencies.json`)
       .then(res => res.json())
       .then(data => {
       if(constituencyString == undefined) {
         error.style.display = "block";
         error.innerHTML = "Sorry, looks like that's an invalid postcode."
-      } else if (constituencyString == "Stretford and Urmston" || constituencyString == "West Lancashire") {
+      } else if (constituencyString == "West Lancashire") {
         error.style.display = "block";
         error.innerHTML = `Your constituency, ${constituencyString}, does not currently have an MP until an upcoming by-election.`;
+      } else if (constituencyString == "Stretford and Urmston") {
+        error.style.display = "block";
+        error.innerHTML = `Your MP in ${constituencyString}, Andrew Western, is newly elected and so has no voting record on these issues.`;
+      } else if (constituencyString == "City of Chester") {
+        error.style.display = "block";
+        error.innerHTML = `Your MP in ${constituencyString}, Samantha Dixon, is newly elected and so has no voting record on these issues.`;
       } else {
         loading.style.display = "block";
         error.style.display = "none"
@@ -166,25 +172,86 @@ function checkVote(code) {
           if (partyString == "Conservative") {
             document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralCon[code]}: `;
             document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/F.png" width = 48px title="Absent or Abstained"/>`;
-          } else if (partyString == "Conservative" && constituencyString == "Southend West") {
-            document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralCon[code]}: `;
-            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, only being elected after this vote, or acting as a teller.`;
-            document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/absent.png" width = 48px title="Absent or Abstained"/>`;
           } else if (partyString == "Labour") {
             document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralLab[code]}: `;
-            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, only being elected after this vote, or acting as a teller.`;
+            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, or acting as a teller.`;
             document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/absent.png" width = 48px title="Absent or Abstained"/>`;
           } else if (partyString == "Labour and Co-operative") {
             document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralLab[code]}: `;
-            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, only being elected after this vote, or acting as a teller.`;
+            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, or acting as a teller.`;
             document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/absent.png" width = 48px title="Absent or Abstained"/>`;
           } else {
             document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralLab[code]}: `;
-            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, only being elected after this vote, or acting as a teller.`;
+            document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, or acting as a teller.`;
             document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/absent.png" width = 48px title="Absent or Abstained"/>`;
           }
 
+          if (constituencyString == "Birmingham Edgbaston") {
+            document.getElementById(`issue1Name`).innerHTML = `Voted for an emergency budget to tackle the cost of living crisis.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome1: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Voted against Boris Johnson in a confidence vote.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="Against"/>`;
+            console.log(`voteOutcome2: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Voted to end non-dom tax status.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome3: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Voted to ban fracking.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome4: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Voted to remove VAT from energy bills.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome5: Aye`);
+          } else if (constituencyString == "Mitcham and Morden") {
 
+          } else if (constituencyString == "Alyn and Deeside") {
+            document.getElementById(`issue1Name`).innerHTML = `Voted for an emergency budget to tackle the cost of living crisis.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome1: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Voted against a tax cut for bankers.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="Against"/>`;
+            console.log(`voteOutcome2: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Was a teller on the vote to save jobs at P&O Ferries.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome3: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Voted to ban fracking.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome4: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Voted to remove VAT from energy bills.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome5: Aye`);
+          } else if (constituencyString == "Nottingham South") {
+            document.getElementById(`issue1Name`).innerHTML = `Voted for an emergency budget to tackle the cost of living crisis.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome1: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Voted against a tax cut for bankers.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="Against"/>`;
+            console.log(`voteOutcome2: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Was a teller on the vote to save jobs at P&O Ferries.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome3: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Voted to ban fracking.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome4: Aye`);
+            document.getElementById(`issue1Name`).innerHTML = `Voted to remove VAT from energy bills.`;
+            document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
+            document.getElementById(`voteOutcome1`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
+            console.log(`voteOutcome5: Aye`);
+          } else {
 
           for (let k = 0; k < ayeTellersArray.length; k++) {
             if (ayeTellersArray[k].MemberId === mpID) {
@@ -225,6 +292,7 @@ function checkVote(code) {
               break;
             }
           }
+        }
   }
   )
 }
