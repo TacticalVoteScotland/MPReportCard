@@ -157,7 +157,7 @@ form.addEventListener("submit", e => {
             partyBullet.innerHTML = `${partyString}`;
             constituencyBullet.innerHTML = `${constituencyString}`;
 
-function checkVote(code) {
+function checkVote(code, constituencyString) {
   fetch(`https://commonsvotes-api.parliament.uk/data/division/${voteCodes[code]}.json`)
       .then(res => res.json())
       .then(voteData => {
@@ -297,11 +297,11 @@ function checkVote(code) {
   )
 }
 
-checkVote(0);
-checkVote(1);
-checkVote(2);
-checkVote(3);
-checkVote(4);
+checkVote(0, constituencyString);
+checkVote(1, constituencyString);
+checkVote(2, constituencyString);
+checkVote(3, constituencyString);
+checkVote(4, constituencyString);
 
 let graphicButton = document.getElementById('graphicButton');
 graphicButton.addEventListener("click", generateGraphic);
