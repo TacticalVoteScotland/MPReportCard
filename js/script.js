@@ -278,7 +278,6 @@ function checkVote(code, constituencyString) {
             document.getElementById(`voteOutcome5`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
           }
 
-        }
   }
   )
 }
