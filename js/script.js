@@ -186,6 +186,46 @@ function checkVote(code, constituencyString) {
             document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/absent.png" width = 48px title="Absent or Abstained"/>`;
           }
 
+          for (let k = 0; k < ayeTellersArray.length; k++) {
+            if (ayeTellersArray[k].MemberId === mpID) {
+              document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesFor[code]}: `;
+              document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = ``;
+              document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="${forImage[code]}" width = 48px title="For"/>`;
+              console.log(`voteOutcome${code}: Aye`);
+              break;
+            }
+          }
+
+          for (let l = 0; l < ayesArray.length; l++) {
+            if (ayesArray[l].MemberId === mpID) {
+              document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesFor[code]}: `;
+              document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = ``;
+              document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="${forImage[code]}" width = 48px title="For"/>`;
+              console.log(`voteOutcome${code}: Aye`);
+              break;
+            }
+          }
+
+          for (let m = 0; m < noTellersArray.length; m++) {
+            if (noTellersArray[m].MemberId === mpID) {
+              document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesAgainst[code]}: `;
+              document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = ``;
+              document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="${againstImage[code]}" width = 48px title="Against"/>`;
+              console.log(`voteOutcome${code}: No`);
+              break;
+            }
+          }
+
+          for (let n = 0; n < noesArray.length; n++) {
+            if (noesArray[n].MemberId === mpID) {
+              document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesAgainst[code]}: `;
+              document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = ``;
+              document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="${againstImage[code]}" width = 48px title="Against"/>`;
+              console.log(`voteOutcome${code}: No`);
+              break;
+            }
+          }
+
           if (constituencyString == "Birmingham Edgbaston") {
             document.getElementById(`issue1Name`).innerHTML = `Voted for an emergency budget to tackle the cost of living crisis.`;
             document.getElementById(`absenceDisclaimer1`).innerHTML = ``;
@@ -236,47 +276,8 @@ function checkVote(code, constituencyString) {
             document.getElementById(`issue5Name`).innerHTML = `Voted to remove VAT from energy bills.`;
             document.getElementById(`absenceDisclaimer5`).innerHTML = ``;
             document.getElementById(`voteOutcome5`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
-          } else {
-
-          for (let k = 0; k < ayeTellersArray.length; k++) {
-            if (ayeTellersArray[k].MemberId === mpID) {
-              document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesFor[code]}: `;
-              document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = ``;
-              document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="${forImage[code]}" width = 48px title="For"/>`;
-              console.log(`voteOutcome${code}: Aye`);
-              break;
-            }
           }
 
-          for (let l = 0; l < ayesArray.length; l++) {
-            if (ayesArray[l].MemberId === mpID) {
-              document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesFor[code]}: `;
-              document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = ``;
-              document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="${forImage[code]}" width = 48px title="For"/>`;
-              console.log(`voteOutcome${code}: Aye`);
-              break;
-            }
-          }
-
-          for (let m = 0; m < noTellersArray.length; m++) {
-            if (noTellersArray[m].MemberId === mpID) {
-              document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesAgainst[code]}: `;
-              document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = ``;
-              document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="${againstImage[code]}" width = 48px title="Against"/>`;
-              console.log(`voteOutcome${code}: No`);
-              break;
-            }
-          }
-
-          for (let n = 0; n < noesArray.length; n++) {
-            if (noesArray[n].MemberId === mpID) {
-              document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesAgainst[code]}: `;
-              document.getElementById(`absenceDisclaimer${code+1}`).innerHTML = ``;
-              document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="${againstImage[code]}" width = 48px title="Against"/>`;
-              console.log(`voteOutcome${code}: No`);
-              break;
-            }
-          }
         }
   }
   )
