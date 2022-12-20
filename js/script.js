@@ -221,6 +221,8 @@ function checkVote(code, constituencyString) {
             document.getElementById(`voteOutcome5`).innerHTML = `<img src="img/A.png" width = 48px title="For"/>`;
           } else {
 
+          console.log('Calculating Votes...');
+
           if (partyString == "Conservative") {
             document.getElementById(`issue${code+1}Name`).innerHTML = `${issuesNeutralCon[code]}: `;
             document.getElementById(`voteOutcome${code+1}`).innerHTML = `<img src="img/F.png" width = 48px title="Absent or Abstained"/>`;
