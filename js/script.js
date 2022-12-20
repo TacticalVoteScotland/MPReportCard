@@ -225,7 +225,7 @@ function checkVote(code, constituencyString) {
               break;
             }
           }
-        }
+        })
   }
   )
 }
