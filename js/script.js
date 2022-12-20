@@ -316,6 +316,7 @@ function getConstituencyName(postcode) {
       let constituency = data.result.parliamentary_constituency
       let constituencyString = constituency.toString()
       printMessageToScreen(constituencyString)
+      console.log(constituencyString);
       }
     }
     )
