@@ -120,6 +120,12 @@ form.addEventListener("submit", e => {
       } else if (constituencyString == "City of Chester") {
         error.style.display = "block";
         error.innerHTML = `Your MP in ${constituencyString}, Samantha Dixon, is newly elected and so has no voting record on these issues.`;
+      } else if (constituencyString == "Doncaster Central") {
+        error.style.display = "block";
+        error.innerHTML = `Your MP in ${constituencyString}, Rosie Winterton, is a Deputy Speaker and so does not typically vote in the House of Commons.`;
+      } else if (constituencyString == "Chorley") {
+        error.style.display = "block";
+        error.innerHTML = `Your MP in ${constituencyString}, Lindsay Hoyle, is the Speaker of the House and so does not typically vote in the House of Commons.`;
       } else {
         loading.style.display = "block";
         error.style.display = "none"
