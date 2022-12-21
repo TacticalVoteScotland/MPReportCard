@@ -129,6 +129,9 @@ form.addEventListener("submit", e => {
       } else if (constituencyString == "Ribble Valley") {
         error.style.display = "block";
         error.innerHTML = `Your MP in ${constituencyString}, Nigel Evans, is a Deputy Speaker and so does not typically vote in the House of Commons.`;
+      } else if (constituencyString == "Brent Central") {
+        error.style.display = "block";
+        error.innerHTML = `Your MP in ${constituencyString}, Dawn Butler, has been unable to attend Parliament for much of this year for health reasons.`;
       } else if (constituencyString == "Epping Forest") {
         error.style.display = "block";
         error.innerHTML = `Your MP in ${constituencyString}, Eleanor Laing, is a Deputy Speaker and so does not typically vote in the House of Commons.`;
