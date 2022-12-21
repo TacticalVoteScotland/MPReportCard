@@ -75,7 +75,7 @@ function download_image() {
 let issuesFor = ['Voted for an emergency budget to tackle the cost of living crisis', 'Voted to have confidence in Boris Johnson', 'Voted to save jobs at P&O Ferries', 'Voted to ban fracking', 'Voted to remove VAT from energy bills']
 let issuesAgainst = ['Voted against an emergency budget to tackle the cost of living crisis', 'Voted against Boris Johnson in a confidence vote', 'Voted against saving jobs at P&O Ferries', 'Voted to allow fracking', 'Voted against removing VAT from energy bills']
 let issuesNeutralLab = ['Was absent for the vote on an emergency budget', 'Was absent for the confidence vote on Boris Johnson', 'Was absent from the vote on P&O Ferries jobs', 'Was absent for the vote on fracking', 'Was absent for the vote on removing VAT from energy bills']
-let issuesNeutralCon = ['Did not vote for an emergency budget to tackle the cost of living crisis', 'Did not vote to remove Boris Johnson from office', 'Did not vote to save jobs at P&O Ferries', 'Did not vote to ban fracking', 'Did not vote remove VAT from energy bills']
+let issuesNeutralCon = ['Did not vote for an emergency budget to tackle the cost of living crisis', 'Did not vote to remove Boris Johnson from office', 'Did not vote to save jobs at P&O Ferries', 'Did not vote to ban fracking', 'Did not vote to remove VAT from energy bills']
 let forImage = ['img/A.png', 'img/F.png', 'img/A.png', 'img/A.png', 'img/A.png'];
 let againstImage = ['img/F.png', 'img/A.png', 'img/F.png', 'img/F.png', 'img/F.png'];
 //Sewage, Energy VAT, P&O Ferries, Fracking,
@@ -339,6 +339,12 @@ function checkVote(code, constituencyString) {
               console.log(`voteOutcome${code}: No`);
               break;
             }
+          }
+
+          if (constituencyString == "Southend West") {
+            document.getElementById(`issue5Name`).innerHTML = `Did not vote to remove VAT from energy bills.`;
+            document.getElementById(`absenceDisclaimer5`).innerHTML = `An MP may have been absent for several reasons - e.g., away on Parliamentary business, ill, not yet elected, or acting as a teller.`;
+            document.getElementById(`voteOutcome5`).innerHTML = `<img src="img/absent.png" width = 48px title="For"/>`;
           }
   }
 })
